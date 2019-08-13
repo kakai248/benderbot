@@ -1,0 +1,27 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.41'
+}
+
+group 'triviabot'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0-RC2"
+    implementation ("net.dv8tion:JDA:4.0.0_39") {
+        exclude module: 'opus-java'
+    }
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}

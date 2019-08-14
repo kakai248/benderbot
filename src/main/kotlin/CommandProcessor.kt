@@ -1,14 +1,14 @@
 import commands.Command
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent
 
-class CommandParser(
+class CommandProcessor(
     var prefix: String = "",
     vararg registeredCommands: Command
 ) {
 
     private val commands = registeredCommands.toList()
 
-    fun parse(event: MessageReceivedEvent): Action? {
+    fun process(event: MessageReceivedEvent): Action? {
         val rawMessage = event.message.contentRaw.run {
             if (prefix.isNotEmpty() && !startsWith(prefix)) {
                 return null

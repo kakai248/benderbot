@@ -11,6 +11,7 @@ class TriviaGame(private val channel: TextChannel) : AbstractActivity() {
     }
 
     override fun onEnding() {
+        super.onEnding()
         channel.sendMessage("Leaving trivia game!").queue()
     }
 
